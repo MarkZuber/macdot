@@ -11,6 +11,7 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
     brew install zsh-syntax-highlighting
     brew install zsh-autosuggestions
+    brew install hub
 
     cp -R -v ${script_dir}/pictures/ ~/Pictures/
 
