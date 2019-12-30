@@ -1,5 +1,7 @@
 #!/bin/bash
 
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 # install oh-my-zsh
 if [! -d "~/.oh-my-zsh"]
 then
@@ -9,12 +11,15 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
     brew install zsh-syntax-highlighting
     brew install zsh-autosuggestions
+
+    cp -R -v ${script_dir}/pictures/ ~/Pictures/
+
+    # todo: install fonts
 fi
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
         # ...
 fi
-
 
 # Configure Git
 git config --global difftool.prompt false

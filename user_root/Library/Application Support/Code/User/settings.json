@@ -1,0 +1,13 @@
+{
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "workbench.iconTheme": "vscode-icons",
+    "editor.fontSize": 18,
+    "editor.fontFamily": "'Cascadia Mono PL', Menlo, Monaco, 'Courier New', monospace",
+    "terminal.integrated.fontSize": 16,
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+        100
+    ],
+    "window.zoomLevel": -1
+}
