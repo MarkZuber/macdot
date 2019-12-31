@@ -52,6 +52,15 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export editor='vim'
 
 # Aliases
+
+
+### Rust Aliases
+alias cr="cargo run "
+alias crr="cargo run --release "
+alias cb="cargo build "
+alias cbr="cargo build --release "
+
+
 alias cls='clear'
 alias srcz="source ~/.zshrc"
 alias zshrc="code ~/.zshrc"
