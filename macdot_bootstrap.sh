@@ -3,7 +3,7 @@
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # install oh-my-zsh
-if [! -d "~/.oh-my-zsh"]
+if [ ! -d ~/.oh-my-zsh ]
 then
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
@@ -18,9 +18,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     # todo: install fonts
 fi
 
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-        # ...
-fi
+# if [ "$OSTYPE" == "linux-gnu" ]; then
+#         # ...
+# fi
 
 # Configure Git
 git config --global difftool.prompt false
