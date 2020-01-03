@@ -135,6 +135,8 @@ alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%
 # | List Directory Contents (ls)                                               |
 # ------------------------------------------------------------------------------
 
+alias ls="ls --color "
+
 # list all files colorized in long format
 alias l="ls -lhF $COLORFLAG"
 # list all files with directories
