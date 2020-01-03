@@ -1,4 +1,9 @@
-export ZSH="/Users/zube/.oh-my-zsh"
+if [ -f ~/.isatwork ]; then
+  export IS_AT_WORK=true
+  echo 'IsAtWork=true, setting work aliases instead...'
+fi
+
+export ZSH=~/.oh-my-zsh
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="agnoster"
@@ -16,7 +21,6 @@ setopt APPEND_HISTORY # adds history
 setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
-
 
 plugins=(
     git
@@ -60,7 +64,6 @@ alias crr="cargo run --release "
 alias cb="cargo build "
 alias cbr="cargo build --release "
 
-
 alias cls='clear'
 alias srcz="source ~/.zshrc"
 alias zshrc="code ~/.zshrc"
@@ -82,7 +85,13 @@ alias cd...='cd ../..'
 alias cd....='cd ../../..'
 alias cd.....='cd ../../../..'
 
-alias c="code ."
+if [ $IS_AT_WORK = true ]; then
+  alias c="code-fb ."
+  alias ci="code-fb-insiders ."
+else
+  alias c="code ."
+  alias ci="code-insiders ."
+fi
 
 alias mkdir="mkdir -p"
 alias md="mkdir"
@@ -266,7 +275,7 @@ command -v sha1sum > /dev/null || alias sha1sum="shasum"
 # find . -name .gitattributes | map dirname
 alias map="xargs -n1"
 
-## Visual Studio related stuff... 
+## Visual Studio related stuff...
 
 do_vswhere() {
     # https://stackoverflow.com/questions/54820639/how-do-i-create-a-zsh-alias-on-wsl-that-runs-vswhere-exe-and-executes-the-path
@@ -299,3 +308,4 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 commands() {
   awk '{a[$2]++}END{for(i in a){print a[i] " " i}}'
 }
+
