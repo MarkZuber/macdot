@@ -3,7 +3,7 @@ if [ -f ~/.isatwork ]; then
   echo 'IsAtWork=true, setting work aliases instead...'
 fi
 
-if [ if ~/.isworkserver ]; then
+if [ -f ~/.isworkserver ]; then
   source /usr/facebook/ops/rc/master.zshrc
 fi
 
