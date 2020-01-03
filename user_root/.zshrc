@@ -3,6 +3,10 @@ if [ -f ~/.isatwork ]; then
   echo 'IsAtWork=true, setting work aliases instead...'
 fi
 
+if [ if ~/.isworkserver ]; then
+  source /usr/facebook/ops/rc/master.zshrc
+fi
+
 export ZSH=~/.oh-my-zsh
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
@@ -22,39 +26,49 @@ setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share 
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
-plugins=(
-    git
-    osx
-    last-working-dir
-    web-search
-    extract
-    history
-    cargo
-    rust
-    golang
-    sudo
-    yarn
-    z
-    github
-    gitignore
-    jsontools
-    rand-quote
-    rsync
-    systemd
-    themes
-    timer
-    urltools
-    vscode
-    xcode
-)
 
 source $ZSH/oh-my-zsh.sh
 
-# Only do this on macos, I don't have the scripts to install this in the unix
-# environments currently.
+# Only do this on macos, on work servers, these get added to plugins array.
 if [[ "$OSTYPE" == "darwin"* ]]; then
+
+  plugins=(
+      cargo
+      extract
+      git
+      github
+      gitignore
+      golang
+      history
+      jsontools
+      last-working-dir
+      osx
+      rand-quote
+      rsync
+      rust
+      sudo
+      systemd
+      themes
+      timer
+      urltools
+      vscode
+      web-search
+      xcode
+      yarn
+      z
+  )
+
   source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+if [ -f ~/.isworkserver ]; then
+  plugins=(
+    history
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+    z
+)
 fi
 
 # User configuration
