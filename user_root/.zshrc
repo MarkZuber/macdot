@@ -49,14 +49,18 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Only do this on macos, I don't have the scripts to install this in the unix
+# environments currently.
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 # User configuration
 export editor='vim'
 
 # Aliases
-
 
 ### Rust Aliases
 alias cr="cargo run "
