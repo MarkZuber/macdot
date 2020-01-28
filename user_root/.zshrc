@@ -128,6 +128,7 @@ alias myip_dns="dig +short myip.opendns.com @resolver1.opendns.com"
 alias usage="du -h -d1"
 alias runp="lsof -i "
 alias topten="history | commands | sort -rn | head"
+alias listening="lsof -i -P | grep LISTEN "
 
 alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches"
 
@@ -321,7 +322,12 @@ alias devenvp=devenv_path_p_ex
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+##### Build Commands #####
 
+alias vscbldcln="cd ~/fbsource/xplat/vscode && yarn && yarn clean && yarn && yarn build && yarn task bundle-all-modules --daemon"
+alias vscbld="cd ~/fbsource/xplat/vscode && yarn && yarn build && yarn task bundle-all-modules --daemon"
+alias vscdevsvr="cd ~/fbsource/xplat/vscode && yarn task bundle-all-modules --daemon && yarn task setup-devserver --devserver devvm2800.ftw3.facebook.com"
+alias vst="cd ~/fbsource/xplat/vscode && yarn jest-node "
 
 # custom functions
 
